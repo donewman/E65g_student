@@ -101,10 +101,15 @@ typealias Position = (row: Int, col: Int)
 enum CellState {
     // ** Your Problem 2 code goes here! Replace the contents of CellState **
     //  This shell code is here so that at all times the playground compiles and runs
-    case empty
+    case alive, empty, born, died
     
     var isAlive: Bool {
-        return false
+        switch self {
+        case CellState.alive, CellState.born:
+            return true
+        case CellState.empty, CellState.died:
+            return false
+        }
     }
 }
 /*:
@@ -117,8 +122,8 @@ enum CellState {
 // A struct representing a Cell in Conway's Game of Life
 struct Cell {
     // ** Your Problem 3 code goes here! replace the following two lines **
-    var position: Position
-    var state: CellState
+    var position = (0, 0)
+    var state = CellState.empty
 }
 /*:
  ## Problem 4:
@@ -129,29 +134,30 @@ struct Cell {
  */
 // ** Your Problem 4.1 answer goes here **
 /*
- 
+ They take the place of argument labels.
  */
 /*:
  2. what is the type of the `transform` variable
  */
 // ** Your Problem 4.2 answer goes here **
 /*
- 
+ a Tuple of type Int, Int
  */
 /*:
  3. what is the return type of `map2`
  */
 // ** Your Problem 4.3 answer goes here **
 /*
- 
+ a Tuple of type Int, Int
  */
 /*:
  4. what is `T` in this declaration
  */
 // ** Your Problem 4.4 answer goes here **
 /*
- 
+ a placeholder for a generic type
  */
+
 // A function which is like the standard map function but
 // which will operate only on a two dimensional array
 func map2<T>(_ rows: Int, _ cols: Int, transform: (Int, Int) -> T) -> [[T]] {
@@ -175,7 +181,7 @@ func map2<T>(_ rows: Int, _ cols: Int, transform: (Int, Int) -> T) -> [[T]] {
 */
 // ** Your Problem 5 comment goes here! **
 /*
- 
+
  */
 /*:
  ## Problem 6:
