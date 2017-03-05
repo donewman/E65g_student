@@ -105,10 +105,8 @@ enum CellState {
     
     var isAlive: Bool {
         switch self {
-        case CellState.alive, CellState.born:
-            return true
-        case CellState.empty, CellState.died:
-            return false
+        case .alive, .born: return true
+        case .empty, .died: return false
         }
     }
 }
@@ -141,21 +139,21 @@ struct Cell {
  */
 // ** Your Problem 4.2 answer goes here **
 /*
- a Tuple of type Int, Int
+ a function that takes two ints and returns a T
  */
 /*:
  3. what is the return type of `map2`
  */
 // ** Your Problem 4.3 answer goes here **
 /*
- a Tuple of type Int, Int
+ an array of array of Ts
  */
 /*:
  4. what is `T` in this declaration
  */
 // ** Your Problem 4.4 answer goes here **
 /*
- a placeholder for a generic type
+ a generic type
  */
 
 // A function which is like the standard map function but
@@ -167,6 +165,7 @@ func map2<T>(_ rows: Int, _ cols: Int, transform: (Int, Int) -> T) -> [[T]] {
         }
     }
 }
+
 /*:
  The following 4 problems apply to the struct Grid shown below.
  
@@ -181,7 +180,7 @@ func map2<T>(_ rows: Int, _ cols: Int, transform: (Int, Int) -> T) -> [[T]] {
 */
 // ** Your Problem 5 comment goes here! **
 /*
-
+ They represent the 8 neighbors of a cell.
  */
 /*:
  ## Problem 6:
@@ -223,14 +222,15 @@ struct Grid {
     ]
     
     // ** Your Problem 6 code goes here! Change the following two lines **
-    var rows: Int = 0
-    var cols: Int = 0
+    var rows: Int = 10
+    var cols: Int = 10
     var cells: [[Cell]] = [[Cell]]()
     
     init(_ rows: Int,
          _ cols: Int,
          cellInitializer: (Int, Int) -> CellState = { _,_ in .empty } ) {
         // ** Your Problem 7 code goes here! **
+
         map2(rows, cols) { row, col in
             // ** Your Problem 8 code goes here! **
         }
