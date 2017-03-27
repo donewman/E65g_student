@@ -87,13 +87,13 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grid Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2O-dV-0FX">
-                                                        <rect key="frame" x="0.0" y="64.5" width="69" height="21"/>
+                                                        <rect key="frame" x="0.0" y="65" width="69" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frames/Second" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1KJ-kD-E6e">
-                                                        <rect key="frame" x="0.0" y="129" width="121" height="21"/>
+                                                        <rect key="frame" x="0.0" y="129" width="120.5" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -108,7 +108,7 @@
                                                         <rect key="frame" x="126.5" y="120" width="131.5" height="31"/>
                                                     </slider>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="zSz-IV-HWV">
-                                                        <rect key="frame" x="126.5" y="60.5" width="131.5" height="31"/>
+                                                        <rect key="frame" x="126.5" y="61" width="131.5" height="31"/>
                                                     </slider>
                                                 </subviews>
                                                 <constraints>
