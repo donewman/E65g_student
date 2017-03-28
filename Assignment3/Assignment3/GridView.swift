@@ -25,7 +25,56 @@ import UIKit
     var grid = Grid(20,20)
 
     override func draw(_ rect: CGRect) {
-        // Drawing code
+        let size = CGSize(
+            width: rect.size.width / gridWidth,
+            height: rect.size.height / gridWidth
+        )
+        let base = rect.origin
+        (0 ..< self.size).forEach { i in
+            (0 ..< self.size).forEach { j in
+                let origin = CGPoint(
+                    x: base.x + (CGFloat(i) * size.width),
+                    y: base.y + (CGFloat(j) * size.height)
+                )
+                let subRect = CGRect(
+                    origin: origin,
+                    size: size
+                )
+            }
+        }
+        
+        for i in (0 ... self.size) {
+            let verticalPath = UIBezierPath()
+            var start = CGPoint(
+                x: rect.origin.x + (rect.size.width / CGFloat(self.size) * CGFloat(i)),
+                y: rect.origin.y
+            )
+            var end = CGPoint(
+                x: rect.origin.x + (rect.size.width / CGFloat(self.size) * CGFloat(i)),
+                y: rect.origin.y + rect.size.height
+            )
+            verticalPath.lineWidth = gridWidth
+            verticalPath.move(to: start)
+            verticalPath.addLine(to: end)
+            gridColor.setStroke()
+            verticalPath.stroke()
+        }
+        
+        for i in (0 ... self.size) {
+            let horizontalPath = UIBezierPath()
+            var start = CGPoint(
+                x: rect.origin.x,
+                y: rect.origin.y + (rect.size.height / CGFloat(self.size) * CGFloat(i))
+            )
+            var end = CGPoint(
+                x: rect.origin.x + rect.size.width,
+                y: rect.origin.y + (rect.size.height / CGFloat(self.size) * CGFloat(i))
+            )
+            horizontalPath.lineWidth = gridWidth
+            horizontalPath.move(to: start)
+            horizontalPath.addLine(to: end)
+            gridColor.setStroke()
+            horizontalPath.stroke()
+        }
     }
-
 }
