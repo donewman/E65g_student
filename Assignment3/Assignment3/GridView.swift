@@ -26,8 +26,8 @@ import UIKit
 
     override func draw(_ rect: CGRect) {
         let size = CGSize(
-            width: rect.size.width / gridWidth,
-            height: rect.size.height / gridWidth
+            width: rect.size.width / CGFloat(self.size),
+            height: rect.size.height / CGFloat(self.size)
         )
         let base = rect.origin
         (0 ..< self.size).forEach { i in
@@ -40,16 +40,27 @@ import UIKit
                     origin: origin,
                     size: size
                 )
+                let path = UIBezierPath(ovalIn: subRect)
+                if grid[(i,j)] == .alive {
+                    livingColor.setFill()
+                } else if grid[(i,j)] == .born {
+                    bornColor.setFill()
+                } else if grid[(i,j)] == .empty {
+                    emptyColor.setFill()
+                } else if grid[(i,j)] == .died {
+                    diedColor.setFill()
+                }
+                path.fill()
             }
         }
         
         for i in (0 ... self.size) {
             let verticalPath = UIBezierPath()
-            var start = CGPoint(
+            let start = CGPoint(
                 x: rect.origin.x + (rect.size.width / CGFloat(self.size) * CGFloat(i)),
                 y: rect.origin.y
             )
-            var end = CGPoint(
+            let end = CGPoint(
                 x: rect.origin.x + (rect.size.width / CGFloat(self.size) * CGFloat(i)),
                 y: rect.origin.y + rect.size.height
             )
@@ -62,11 +73,11 @@ import UIKit
         
         for i in (0 ... self.size) {
             let horizontalPath = UIBezierPath()
-            var start = CGPoint(
+            let start = CGPoint(
                 x: rect.origin.x,
                 y: rect.origin.y + (rect.size.height / CGFloat(self.size) * CGFloat(i))
             )
-            var end = CGPoint(
+            let end = CGPoint(
                 x: rect.origin.x + rect.size.width,
                 y: rect.origin.y + (rect.size.height / CGFloat(self.size) * CGFloat(i))
             )
