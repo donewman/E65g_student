@@ -29,6 +29,7 @@ import UIKit
             width: rect.size.width / CGFloat(self.size),
             height: rect.size.height / CGFloat(self.size)
         )
+        
         let base = rect.origin
         (0 ..< self.size).forEach { i in
             (0 ..< self.size).forEach { j in
@@ -53,39 +54,29 @@ import UIKit
                 path.fill()
             }
         }
-        
-        for i in (0 ... self.size) {
-            let verticalPath = UIBezierPath()
-            let start = CGPoint(
-                x: rect.origin.x + (rect.size.width / CGFloat(self.size) * CGFloat(i)),
-                y: rect.origin.y
+
+        (0 ... self.size).forEach { i in
+            // draw vertical lines
+            drawLine(
+                start: CGPoint(x: rect.origin.x + (rect.size.width / CGFloat(self.size) * CGFloat(i)), y: rect.origin.y),
+                end: CGPoint(x: rect.origin.x + (rect.size.width / CGFloat(self.size) * CGFloat(i)), y: rect.origin.y + rect.size.height)
             )
-            let end = CGPoint(
-                x: rect.origin.x + (rect.size.width / CGFloat(self.size) * CGFloat(i)),
-                y: rect.origin.y + rect.size.height
+            
+            // draw horizontal lines
+            drawLine(
+                start: CGPoint(x: rect.origin.x, y: rect.origin.y + (rect.size.height / CGFloat(self.size) * CGFloat(i))),
+                end: CGPoint(x: rect.origin.x + rect.size.width, y: rect.origin.y + (rect.size.height / CGFloat(self.size) * CGFloat(i)))
             )
-            verticalPath.lineWidth = gridWidth
-            verticalPath.move(to: start)
-            verticalPath.addLine(to: end)
-            gridColor.setStroke()
-            verticalPath.stroke()
         }
         
-        for i in (0 ... self.size) {
-            let horizontalPath = UIBezierPath()
-            let start = CGPoint(
-                x: rect.origin.x,
-                y: rect.origin.y + (rect.size.height / CGFloat(self.size) * CGFloat(i))
-            )
-            let end = CGPoint(
-                x: rect.origin.x + rect.size.width,
-                y: rect.origin.y + (rect.size.height / CGFloat(self.size) * CGFloat(i))
-            )
-            horizontalPath.lineWidth = gridWidth
-            horizontalPath.move(to: start)
-            horizontalPath.addLine(to: end)
-            gridColor.setStroke()
-            horizontalPath.stroke()
-        }
+    }
+    
+    func drawLine(start: CGPoint, end: CGPoint) {
+        let path = UIBezierPath()
+        path.lineWidth = gridWidth
+        path.move(to: start)
+        path.addLine(to: end)
+        gridColor.setStroke()
+        path.stroke()
     }
 }
