@@ -51,13 +51,30 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4qj-Tq-7E7">
+                                <rect key="frame" x="144" y="126" width="32" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="QKJ-MQ-Nah"/>
+                                    <constraint firstAttribute="height" constant="30" id="RRC-zb-yAh"/>
+                                </constraints>
+                                <state key="normal" title="Step"/>
+                                <connections>
+                                    <action selector="stepAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SkO-Q2-Yos"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="k4L-Os-QM3" firstAttribute="top" secondItem="4qj-Tq-7E7" secondAttribute="bottom" constant="8" id="KjA-Yd-UeK"/>
                             <constraint firstItem="k4L-Os-QM3" firstAttribute="centerY" secondItem="62A-wc-15g" secondAttribute="centerY" id="Q2S-AA-613"/>
                             <constraint firstItem="k4L-Os-QM3" firstAttribute="centerX" secondItem="62A-wc-15g" secondAttribute="centerX" id="VAw-PH-XYj"/>
+                            <constraint firstItem="4qj-Tq-7E7" firstAttribute="centerX" secondItem="62A-wc-15g" secondAttribute="centerX" id="mx8-cC-QbZ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="gridView" destination="k4L-Os-QM3" id="MoB-Nq-9yN"/>
+                        <outlet property="stepButton" destination="4qj-Tq-7E7" id="gpU-8Z-5Ld"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
