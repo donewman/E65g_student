@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91EA3F2B1EA8748900FBD9ED /* InstrumentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA3F2A1EA8748900FBD9ED /* InstrumentationViewController.swift */; };
+		91EA3F2D1EA8749B00FBD9ED /* SimulationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA3F2C1EA8749B00FBD9ED /* SimulationViewController.swift */; };
+		91EA3F2F1EA874AF00FBD9ED /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA3F2E1EA874AF00FBD9ED /* StatisticsViewController.swift */; };
 		FB475A381E8828EF00D2EAD3 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB475A371E8828EF00D2EAD3 /* Grid.swift */; };
 		FBAD2E071E2BE38C008207C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAD2E061E2BE38C008207C0 /* AppDelegate.swift */; };
 		FBAD2E091E2BE38C008207C0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAD2E081E2BE38C008207C0 /* FirstViewController.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		91EA3F2A1EA8748900FBD9ED /* InstrumentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentationViewController.swift; sourceTree = "<group>"; };
+		91EA3F2C1EA8749B00FBD9ED /* SimulationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulationViewController.swift; sourceTree = "<group>"; };
+		91EA3F2E1EA874AF00FBD9ED /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		FB475A371E8828EF00D2EAD3 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		FBAD2E031E2BE38C008207C0 /* Assignment4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAD2E061E2BE38C008207C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +65,9 @@
 			isa = PBXGroup;
 			children = (
 				FB475A371E8828EF00D2EAD3 /* Grid.swift */,
+				91EA3F2A1EA8748900FBD9ED /* InstrumentationViewController.swift */,
+				91EA3F2C1EA8749B00FBD9ED /* SimulationViewController.swift */,
+				91EA3F2E1EA874AF00FBD9ED /* StatisticsViewController.swift */,
 				FBAD2E061E2BE38C008207C0 /* AppDelegate.swift */,
 				FBAD2E081E2BE38C008207C0 /* FirstViewController.swift */,
 				FBAD2E0A1E2BE38C008207C0 /* SecondViewController.swift */,
@@ -146,7 +155,10 @@
 				FBAD2E0B1E2BE38C008207C0 /* SecondViewController.swift in Sources */,
 				FBAD2E071E2BE38C008207C0 /* AppDelegate.swift in Sources */,
 				FBAD2E091E2BE38C008207C0 /* FirstViewController.swift in Sources */,
+				91EA3F2D1EA8749B00FBD9ED /* SimulationViewController.swift in Sources */,
 				FB475A381E8828EF00D2EAD3 /* Grid.swift in Sources */,
+				91EA3F2B1EA8748900FBD9ED /* InstrumentationViewController.swift in Sources */,
+				91EA3F2F1EA874AF00FBD9ED /* StatisticsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
