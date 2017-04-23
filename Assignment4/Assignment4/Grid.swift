@@ -33,7 +33,6 @@ public let lazyPositions = { (size: GridSize) in
         .map { GridPosition($0) }
 }
 
-
 let offsets: [GridPosition] = [
     (row: -1, col:  -1), (row: -1, col:  0), (row: -1, col:  1),
     (row:  0, col:  -1),                     (row:  0, col:  1),
@@ -68,7 +67,7 @@ extension GridProtocol {
     }
 }
 
-public struct Grid: GridProtocol {
+public struct Grid: GridProtocol, GridViewDataSource {
     private var _cells: [[CellState]]
     public let size: GridSize
 
@@ -139,5 +138,62 @@ public extension Grid {
         case (0, 1), (1, 2), (2, 0), (2, 1), (2, 2): return .alive
         default: return .empty
         }
+    }
+}
+
+protocol EngineDelegate {
+    func engineDidUpdate(withGrid: GridProtocol)
+}
+
+protocol EngineProtocol {
+    var delegate: EngineDelegate? { get set }
+    var grid: GridProtocol { get }
+    var refreshTimer: Timer? { get set }
+    var refreshRate: Double { get set }
+    var rows: Int { get set }
+    var cols: Int { get set }
+    init(rows: Int, cols: Int)
+    func step() -> GridProtocol
+}
+
+class StandardEngine: EngineProtocol {
+    static var engine: StandardEngine = StandardEngine(rows: 10, cols: 10)
+    
+    var delegate: EngineDelegate?
+
+    var grid: GridProtocol
+    
+    var refreshTimer: Timer?
+    
+    var refreshRate: TimeInterval = 0.0 {
+        didSet {
+            if refreshRate > 0.0 {
+                refreshTimer = Timer.scheduledTimer(
+                    withRefreshRate: refreshRate,
+                    repeats: true
+                ) { (t: Timer) in
+                    _ = self.step()
+                }
+            }
+            else {
+                refreshTimer?.invalidate()
+                refreshTimer = nil
+            }
+        }
+    }
+
+    var rows: Int = 0
+    
+    var cols: Int = 0
+
+    required init(rows: Int, cols: Int) {
+        self.grid = Grid(rows, cols)
+    }
+    
+    func step() -> GridProtocol {
+        let newGrid = grid.next()
+        grid = newGrid
+        delegate?.engineDidUpdate(withGrid: grid)
+        return grid
     }
 }

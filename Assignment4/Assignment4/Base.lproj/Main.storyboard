@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -32,7 +33,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="7T2-Ny-dtE">
-                                        <rect key="frame" x="218" y="110.5" width="94" height="29"/>
+                                        <rect key="frame" x="218" y="111" width="94" height="29"/>
                                     </stepper>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grid Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1I-oI-4NL">
                                         <rect key="frame" x="8" y="113" width="81" height="24"/>
@@ -50,13 +51,13 @@
                                         <rect key="frame" x="263" y="359" width="51" height="31"/>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timed Refresh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0l-A0-VFy">
-                                        <rect key="frame" x="8" y="362.5" width="130" height="24"/>
+                                        <rect key="frame" x="8" y="363" width="130" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.10000000000000001" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="a9c-kA-nA5">
-                                        <rect key="frame" x="150" y="234" width="164" height="31"/>
+                                        <rect key="frame" x="150" y="234.5" width="164" height="31"/>
                                     </slider>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="0.050000000000000003" colorSpace="calibratedRGB"/>
@@ -108,7 +109,24 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MS8-q4-Y5J">
                                 <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4OO-YV-21E" customClass="GridView" customModule="Assignment4" customModuleProvider="target">
+                                        <rect key="frame" x="32" y="121" width="256" height="256"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="4OO-YV-21E" secondAttribute="height" multiplier="1:1" id="h26-mg-1GA"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="0.050000000000000003" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="4OO-YV-21E" firstAttribute="height" secondItem="MS8-q4-Y5J" secondAttribute="height" multiplier="0.8" priority="750" id="3KO-0g-YFy"/>
+                                    <constraint firstItem="4OO-YV-21E" firstAttribute="width" relation="lessThanOrEqual" secondItem="MS8-q4-Y5J" secondAttribute="width" multiplier="0.8" id="H6O-5n-DYq"/>
+                                    <constraint firstItem="4OO-YV-21E" firstAttribute="centerY" secondItem="MS8-q4-Y5J" secondAttribute="centerY" id="NTs-kZ-7Hz"/>
+                                    <constraint firstItem="4OO-YV-21E" firstAttribute="width" secondItem="MS8-q4-Y5J" secondAttribute="width" multiplier="0.8" priority="750" id="gwo-Az-Xu7"/>
+                                    <constraint firstItem="4OO-YV-21E" firstAttribute="centerX" secondItem="MS8-q4-Y5J" secondAttribute="centerX" id="t6X-k7-9rt"/>
+                                    <constraint firstItem="4OO-YV-21E" firstAttribute="height" relation="lessThanOrEqual" secondItem="MS8-q4-Y5J" secondAttribute="height" multiplier="0.8" id="wwi-uJ-RNl"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
