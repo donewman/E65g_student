@@ -1,6 +1,9 @@
 //
 //  Grid.swift
 //
+
+import Foundation
+
 public typealias GridPosition = (row: Int, col: Int)
 public typealias GridSize = (rows: Int, cols: Int)
 
@@ -147,7 +150,7 @@ protocol EngineDelegate {
 
 protocol EngineProtocol {
     var delegate: EngineDelegate? { get set }
-    var grid: GridProtocol { get }
+    var grid: GridProtocol { get set }
     var refreshTimer: Timer? { get set }
     var refreshRate: Double { get set }
     var rows: Int { get set }
@@ -162,14 +165,14 @@ class StandardEngine: EngineProtocol {
     var delegate: EngineDelegate?
 
     var grid: GridProtocol
-    
+
     var refreshTimer: Timer?
-    
+
     var refreshRate: TimeInterval = 0.0 {
         didSet {
             if refreshRate > 0.0 {
                 refreshTimer = Timer.scheduledTimer(
-                    withRefreshRate: refreshRate,
+                    withTimeInterval: refreshRate,
                     repeats: true
                 ) { (t: Timer) in
                     _ = self.step()
@@ -193,7 +196,15 @@ class StandardEngine: EngineProtocol {
     func step() -> GridProtocol {
         let newGrid = grid.next()
         grid = newGrid
+        //         updateClosure?(self.grid)
         delegate?.engineDidUpdate(withGrid: grid)
+        //          let nc = NotificationCenter.default
+        //          let name = Notification.Name(rawValue: "EngineUpdate")
+        //          let n = Notification(name: name,
+        //                               object: nil,
+        //                               userInfo: ["engine" : self])
+        //                               nc.post(n)
         return grid
     }
+
 }
