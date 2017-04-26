@@ -8,28 +8,45 @@
 
 import UIKit
 
-class SimulationViewController: UIViewController {
+class SimulationViewController: UIViewController, GridViewDataSource, EngineDelegate {
 
+    @IBOutlet weak var gridView: GridView!
+    
+    var engine: StandardEngine!
+    var timer: Timer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let size = gridView.gridSize
+        engine = StandardEngine(rows: size, cols: size)
+        engine.delegate = self
+        gridView.gridDataSource = self
+        let nc = NotificationCenter.default
+        let name = Notification.Name(rawValue: "EngineUpdate")
+        nc.addObserver(
+            forName: name,
+            object: nil,
+            queue: nil) { (n) in
+                self.gridView.setNeedsDisplay()
+        }
+    }
+    
+    func engineDidUpdate(withGrid: GridProtocol) {
+        self.gridView.setNeedsDisplay()
+    }
+    
+    public subscript (row: Int, col: Int) -> CellState {
+        get { return engine.grid[row,col] }
+        set { engine.grid[row,col] = newValue }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func nextButton(_ sender: Any) {
+        engine.grid = engine.grid.next()
+        self.gridView.setNeedsDisplay()
     }
-    */
 
 }

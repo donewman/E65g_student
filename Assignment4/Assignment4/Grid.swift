@@ -185,25 +185,27 @@ class StandardEngine: EngineProtocol {
         }
     }
 
-    var rows: Int = 0
+    var rows: Int
     
-    var cols: Int = 0
+    var cols: Int
 
     required init(rows: Int, cols: Int) {
         self.grid = Grid(rows, cols)
+        self.rows = rows
+        self.cols = cols
+        delegate?.engineDidUpdate(withGrid: grid)
     }
     
     func step() -> GridProtocol {
         let newGrid = grid.next()
         grid = newGrid
-        //         updateClosure?(self.grid)
         delegate?.engineDidUpdate(withGrid: grid)
-        //          let nc = NotificationCenter.default
-        //          let name = Notification.Name(rawValue: "EngineUpdate")
-        //          let n = Notification(name: name,
-        //                               object: nil,
-        //                               userInfo: ["engine" : self])
-        //                               nc.post(n)
+        let nc = NotificationCenter.default
+        let name = Notification.Name(rawValue: "EngineUpdate")
+        let n = Notification(name: name,
+            object: nil,
+            userInfo: ["engine" : self])
+            nc.post(n)
         return grid
     }
 

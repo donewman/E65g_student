@@ -122,6 +122,9 @@
                                         <rect key="frame" x="141" y="369.5" width="38" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Next"/>
+                                        <connections>
+                                            <action selector="nextButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="h2A-Yo-x9w"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="0.050000000000000003" colorSpace="calibratedRGB"/>
@@ -146,6 +149,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Simulation" image="second" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="gridView" destination="4OO-YV-21E" id="3K4-X2-WDm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
