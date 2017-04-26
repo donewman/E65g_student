@@ -36,7 +36,7 @@
                                             <action selector="gridSizeTextFieldUpdate:" destination="9pv-A4-QxB" eventType="editingDidEnd" id="Gbi-R2-nQQ"/>
                                         </connections>
                                     </textField>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="7T2-Ny-dtE">
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="7T2-Ny-dtE">
                                         <rect key="frame" x="218" y="110.5" width="94" height="29"/>
                                         <connections>
                                             <action selector="gridSizeStepperUpdate:" destination="9pv-A4-QxB" eventType="valueChanged" id="4Uu-KG-aM4"/>
@@ -54,7 +54,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dAt-Eq-lvt">
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dAt-Eq-lvt">
                                         <rect key="frame" x="263" y="359.5" width="51" height="31"/>
                                         <connections>
                                             <action selector="refreshTimerSwitchToggle:" destination="9pv-A4-QxB" eventType="valueChanged" id="WJt-lS-mvl"/>
@@ -102,7 +102,7 @@
                             <constraint firstAttribute="trailing" secondItem="Kyn-At-mCJ" secondAttribute="trailing" id="dl6-bq-QhF"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Instrumentation" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Instrumentation" image="Instrumentation" selectedImage="Instrumentation" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="gridSizeStepper" destination="7T2-Ny-dtE" id="2N2-A2-RaJ"/>
                         <outlet property="gridSizeTextField" destination="YbV-Jr-NyW" id="19l-iw-KZq"/>
@@ -166,7 +166,7 @@
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="MS8-q4-Y5J" secondAttribute="bottom" id="xfF-FC-ADA"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Simulation" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Simulation" image="Simulation" selectedImage="Simulation" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="gridView" destination="4OO-YV-21E" id="3K4-X2-WDm"/>
                     </connections>
@@ -200,7 +200,7 @@
                             <constraint firstItem="eVX-a4-P15" firstAttribute="top" secondItem="PQB-Ez-hQt" secondAttribute="bottom" id="prd-uc-Dle"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Statistics" id="Aks-PK-SZn"/>
+                    <tabBarItem key="tabBarItem" title="Statistics" image="Statistics" selectedImage="Statistics" id="Aks-PK-SZn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FxE-B6-nMe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -228,7 +228,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="Instrumentation" width="25" height="25"/>
+        <image name="Simulation" width="25" height="25"/>
+        <image name="Statistics" width="25" height="25"/>
     </resources>
 </document>
