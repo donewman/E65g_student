@@ -13,7 +13,6 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     @IBOutlet weak var gridView: GridView!
     
     var engine: StandardEngine!
-    var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,14 +20,7 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         engine = StandardEngine(rows: size, cols: size)
         engine.delegate = self
         gridView.gridDataSource = self
-        let nc = NotificationCenter.default
-        let name = Notification.Name(rawValue: "EngineUpdate")
-        nc.addObserver(
-            forName: name,
-            object: nil,
-            queue: nil) { (n) in
-                self.gridView.setNeedsDisplay()
-        }
+        engine.step()
     }
     
     func engineDidUpdate(withGrid: GridProtocol) {
@@ -45,8 +37,7 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     }
     
     @IBAction func nextButton(_ sender: Any) {
-        engine.grid = engine.grid.next()
-        self.gridView.setNeedsDisplay()
+        engine.step()
     }
 
 }
