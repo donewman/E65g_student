@@ -32,9 +32,15 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="gridSizeTextFieldUpdate:" destination="9pv-A4-QxB" eventType="editingDidEnd" id="Gbi-R2-nQQ"/>
+                                        </connections>
                                     </textField>
                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="7T2-Ny-dtE">
                                         <rect key="frame" x="218" y="110.5" width="94" height="29"/>
+                                        <connections>
+                                            <action selector="gridSizeStepperUpdate:" destination="9pv-A4-QxB" eventType="valueChanged" id="4Uu-KG-aM4"/>
+                                        </connections>
                                     </stepper>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grid Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1I-oI-4NL">
                                         <rect key="frame" x="8" y="113.5" width="81" height="24"/>
@@ -50,6 +56,9 @@
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dAt-Eq-lvt">
                                         <rect key="frame" x="263" y="359.5" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="refreshTimerSwitchToggle:" destination="9pv-A4-QxB" eventType="valueChanged" id="WJt-lS-mvl"/>
+                                        </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timed Refresh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0l-A0-VFy">
                                         <rect key="frame" x="8" y="362.5" width="130" height="24"/>
@@ -59,6 +68,9 @@
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.10000000000000001" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="a9c-kA-nA5">
                                         <rect key="frame" x="150" y="234.5" width="164" height="31"/>
+                                        <connections>
+                                            <action selector="refreshRateSliderUpdate:" destination="9pv-A4-QxB" eventType="valueChanged" id="3Zt-7X-DHL"/>
+                                        </connections>
                                     </slider>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="0.050000000000000003" colorSpace="calibratedRGB"/>
@@ -91,6 +103,12 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Instrumentation" image="first" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="gridSizeStepper" destination="7T2-Ny-dtE" id="2N2-A2-RaJ"/>
+                        <outlet property="gridSizeTextField" destination="YbV-Jr-NyW" id="19l-iw-KZq"/>
+                        <outlet property="refreshRateStepper" destination="a9c-kA-nA5" id="5Of-ck-QMa"/>
+                        <outlet property="refreshTimerSwitch" destination="dAt-Eq-lvt" id="1ZL-TO-vBn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>

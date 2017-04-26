@@ -20,7 +20,7 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         engine = StandardEngine(rows: size, cols: size)
         engine.delegate = self
         gridView.gridDataSource = self
-        engine.step()
+        _ = engine.step()
     }
     
     func engineDidUpdate(withGrid: GridProtocol) {
@@ -37,7 +37,6 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     }
     
     @IBAction func nextButton(_ sender: Any) {
-        engine.step()
+        _ = engine.step()
     }
-
 }
