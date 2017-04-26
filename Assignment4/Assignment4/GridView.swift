@@ -16,12 +16,12 @@ public protocol GridViewDataSource {
     var gridDataSource: GridViewDataSource?
     
     @IBInspectable var gridSize: Int = 10
-    @IBInspectable var livingColor = UIColor.green
-    @IBInspectable var bornColor =  UIColor.init(red: 0.0, green: 1.0, blue: 0.0, alpha: 0.6)
+    @IBInspectable var livingColor = UIColor.init(red: 0.2, green: 0.8, blue: 0.2, alpha: 0.6)
+    @IBInspectable var bornColor =  UIColor.init(red: 0.2, green: 0.8, blue: 0.2, alpha: 1.0)
     @IBInspectable var emptyColor = UIColor.clear
-    @IBInspectable var diedColor = UIColor.init(white: 2/3, alpha: 0.6)
-    @IBInspectable var gridColor = UIColor.black
-    @IBInspectable var gridWidth = CGFloat(2.0)
+    @IBInspectable var diedColor = UIColor.lightGray
+    @IBInspectable var gridColor = UIColor.init(red: 0.0, green: 0.4, blue: 1.0, alpha: 1.0)
+    @IBInspectable var gridWidth = CGFloat(1.0)
 
     override func draw(_ rect: CGRect) {
         drawOvals(rect)
@@ -36,34 +36,36 @@ public protocol GridViewDataSource {
         let base = rect.origin
         (0 ..< gridSize).forEach { i in
             (0 ..< gridSize).forEach { j in
-                // Inset the oval 2 points from the left and top edges
                 let ovalOrigin = CGPoint(
                     x: base.x + (CGFloat(j) * size.width) + 2.0,
                     y: base.y + (CGFloat(i) * size.height + 2.0)
                 )
-                // Make the oval draw 2 points short of the right and bottom edges
                 let ovalSize = CGSize(
                     width: size.width - 4.0,
                     height: size.height - 4.0
                 )
                 let ovalRect = CGRect( origin: ovalOrigin, size: ovalSize )
-                let path = UIBezierPath(ovalIn: ovalRect)
                 if let grid = gridDataSource, grid[(i,j)] == .alive {
-                    livingColor.setFill()
+                    drawOval(ovalRect, livingColor)
                 } else if let grid = gridDataSource, grid[(i,j)] == .born {
-                    bornColor.setFill()
+                    drawOval(ovalRect, bornColor)
                 } else if let grid = gridDataSource, grid[(i,j)] == .empty {
-                    emptyColor.setFill()
+                    drawOval(ovalRect, emptyColor)
                 } else if let grid = gridDataSource, grid[(i,j)] == .died {
-                    diedColor.setFill()
+                    drawOval(ovalRect, diedColor)
                 }
-                path.fill()
             }
         }
     }
+    
+    func drawOval(_ ovalRect: CGRect, _ fillColor: UIColor) {
+        let path = UIBezierPath(ovalIn: ovalRect)
+        fillColor.setFill()
+        path.fill()
+    }
+
 
     func drawLines(_ rect: CGRect) {
-        //create the path
         (0 ..< (gridSize + 1)).forEach {
             drawLine(
                 start: CGPoint(x: CGFloat($0)/CGFloat(gridSize) * rect.size.width, y: 0.0),
@@ -77,7 +79,6 @@ public protocol GridViewDataSource {
         }
     }
     
-    // draw a line
     func drawLine(start: CGPoint, end: CGPoint) {
         let path = UIBezierPath()
         path.lineWidth = gridWidth
