@@ -33,10 +33,10 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="gridSizeTextFieldUpdate:" destination="9pv-A4-QxB" eventType="editingDidEnd" id="Gbi-R2-nQQ"/>
+                                            <action selector="gridSizeTextFieldUpdate:" destination="9pv-A4-QxB" eventType="editingDidEndOnExit" id="vS4-Wz-vu5"/>
                                         </connections>
                                     </textField>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="7T2-Ny-dtE">
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" maximumValue="100" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="7T2-Ny-dtE">
                                         <rect key="frame" x="218" y="110.5" width="94" height="29"/>
                                         <connections>
                                             <action selector="gridSizeStepperUpdate:" destination="9pv-A4-QxB" eventType="valueChanged" id="4Uu-KG-aM4"/>

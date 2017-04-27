@@ -9,6 +9,8 @@
 import UIKit
 
 class InstrumentationViewController: UIViewController, UITextFieldDelegate {
+    
+    var engine: EngineProtocol!
 
     @IBOutlet weak var gridSizeTextField: UITextField!
     
@@ -31,7 +33,9 @@ class InstrumentationViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func gridSizeStepperUpdate(_ sender: UIStepper) {
-        
+        engine = StandardEngine(rows: Int(sender.value), cols: Int(sender.value))
+        _ = engine.step()
+        gridSizeTextField.text = "\(engine.rows)"
     }
     
     @IBAction func refreshRateSliderUpdate(_ sender: UISlider) {
@@ -41,4 +45,5 @@ class InstrumentationViewController: UIViewController, UITextFieldDelegate {
     @IBAction func refreshTimerSwitchToggle(_ sender: UISwitch) {
         
     }
+    
 }
