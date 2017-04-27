@@ -163,18 +163,16 @@ class StandardEngine: EngineProtocol {
     static var engine: StandardEngine = StandardEngine(rows: 10, cols: 10)
     
     var delegate: EngineDelegate?
-
+    
     var grid: GridProtocol
-
+    
     var refreshTimer: Timer?
-
+    
     var refreshRate: TimeInterval = 0.0 {
         didSet {
             if refreshRate > 0.0 {
-                refreshTimer = Timer.scheduledTimer(
-                    withTimeInterval: refreshRate,
-                    repeats: true
-                ) { (t: Timer) in
+                refreshTimer = Timer.scheduledTimer(withTimeInterval: refreshRate, repeats: true) {
+                    (t: Timer) in
                     _ = self.step()
                 }
             }
@@ -184,11 +182,11 @@ class StandardEngine: EngineProtocol {
             }
         }
     }
-
+    
     var rows: Int
     
     var cols: Int
-
+    
     required init(rows: Int, cols: Int) {
         self.grid = Grid(rows, cols)
         self.rows = rows
@@ -202,10 +200,8 @@ class StandardEngine: EngineProtocol {
         delegate?.engineDidUpdate(withGrid: grid)
         let nc = NotificationCenter.default
         let name = Notification.Name(rawValue: "EngineUpdate")
-        let n = Notification(name: name,
-            object: nil,
-            userInfo: ["engine" : self])
-            nc.post(n)
+        let n = Notification(name: name, object: nil, userInfo: ["engine" : self])
+        nc.post(n)
         return grid
     }
 

@@ -20,7 +20,11 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         engine = StandardEngine(rows: size, cols: size)
         engine.delegate = self
         gridView.gridDataSource = self
-        _ = engine.step()
+        let nc = NotificationCenter.default
+        let name = Notification.Name(rawValue: "EngineUpdate")
+        nc.addObserver(forName: name, object: nil, queue: nil) {
+            (n) in self.gridView.setNeedsDisplay()
+        }
     }
     
     func engineDidUpdate(withGrid: GridProtocol) {
