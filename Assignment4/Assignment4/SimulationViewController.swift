@@ -12,7 +12,7 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
 
     @IBOutlet weak var gridView: GridView!
     
-    var engine: StandardEngine!
+    var engine: EngineProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
