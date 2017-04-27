@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InstrumentationViewController: UIViewController {
+class InstrumentationViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var gridSizeTextField: UITextField!
     
@@ -26,19 +26,19 @@ class InstrumentationViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func gridSizeTextFieldUpdate(_ sender: Any) {
+    @IBAction func gridSizeTextFieldUpdate(_ sender: UITextField) {
         
     }
     
-    @IBAction func gridSizeStepperUpdate(_ sender: Any) {
+    @IBAction func gridSizeStepperUpdate(_ sender: UIStepper) {
         
     }
     
-    @IBAction func refreshRateSliderUpdate(_ sender: Any) {
+    @IBAction func refreshRateSliderUpdate(_ sender: UISlider) {
         
     }
     
-    @IBAction func refreshTimerSwitchToggle(_ sender: Any) {
+    @IBAction func refreshTimerSwitchToggle(_ sender: UISwitch) {
         
     }
 }
