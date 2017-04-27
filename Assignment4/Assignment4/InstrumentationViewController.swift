@@ -14,7 +14,7 @@ class InstrumentationViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var gridSizeStepper: UIStepper!
     
-    @IBOutlet weak var refreshRateStepper: UISlider!
+    @IBOutlet weak var refreshRateSlider: UISlider!
     
     @IBOutlet weak var refreshTimerSwitch: UISwitch!
     

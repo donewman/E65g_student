@@ -106,7 +106,7 @@
                     <connections>
                         <outlet property="gridSizeStepper" destination="7T2-Ny-dtE" id="2N2-A2-RaJ"/>
                         <outlet property="gridSizeTextField" destination="YbV-Jr-NyW" id="19l-iw-KZq"/>
-                        <outlet property="refreshRateStepper" destination="a9c-kA-nA5" id="5Of-ck-QMa"/>
+                        <outlet property="refreshRateSlider" destination="a9c-kA-nA5" id="JER-mO-gOw"/>
                         <outlet property="refreshTimerSwitch" destination="dAt-Eq-lvt" id="1ZL-TO-vBn"/>
                     </connections>
                 </viewController>
