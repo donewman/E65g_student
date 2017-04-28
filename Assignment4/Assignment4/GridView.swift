@@ -15,14 +15,14 @@ public protocol GridViewDataSource {
 @IBDesignable class GridView: UIView {
     var gridDataSource: GridViewDataSource?
     
-    @IBInspectable var gridSize: Int = 10
+    @IBInspectable var gridSize: Int = StandardEngine.engine.rows
     @IBInspectable var livingColor = UIColor.init(red: 0.2, green: 0.8, blue: 0.2, alpha: 0.6)
     @IBInspectable var bornColor =  UIColor.init(red: 0.2, green: 0.8, blue: 0.2, alpha: 1.0)
     @IBInspectable var emptyColor = UIColor.clear
     @IBInspectable var diedColor = UIColor.lightGray
     @IBInspectable var gridColor = UIColor.init(red: 0.0, green: 0.4, blue: 1.0, alpha: 1.0)
     @IBInspectable var gridWidth = CGFloat(1.0)
-
+    
     override func draw(_ rect: CGRect) {
         drawOvals(rect)
         drawLines(rect)

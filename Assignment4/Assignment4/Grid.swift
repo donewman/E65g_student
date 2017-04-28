@@ -172,8 +172,7 @@ class StandardEngine: EngineProtocol {
         didSet {
             if refreshRate > 0.0 {
                 refreshTimer = Timer.scheduledTimer(withTimeInterval: refreshRate, repeats: true) {
-                    (t: Timer) in
-                    _ = self.step()
+                    (t: Timer) in _ = self.step()
                 }
             }
             else {
@@ -197,7 +196,7 @@ class StandardEngine: EngineProtocol {
     func step() -> GridProtocol {
         let newGrid = grid.next()
         grid = newGrid
-//      delegate?.engineDidUpdate(withGrid: grid)
+        delegate?.engineDidUpdate(withGrid: grid)
         let nc = NotificationCenter.default
         let name = Notification.Name(rawValue: "EngineUpdate")
         let n = Notification(name: name, object: nil, userInfo: ["engine" : self])

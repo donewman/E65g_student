@@ -12,13 +12,9 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
 
     @IBOutlet weak var gridView: GridView!
     
-    var engine: EngineProtocol!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let size = gridView.gridSize
-        engine = StandardEngine(rows: size, cols: size)
-        engine.delegate = self
+        StandardEngine.engine.delegate = self
         gridView.gridDataSource = self
         let nc = NotificationCenter.default
         let name = Notification.Name(rawValue: "EngineUpdate")
@@ -32,8 +28,8 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     }
     
     public subscript (row: Int, col: Int) -> CellState {
-        get { return engine.grid[row,col] }
-        set { engine.grid[row,col] = newValue }
+        get { return StandardEngine.engine.grid[row,col] }
+        set { StandardEngine.engine.grid[row,col] = newValue }
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,6 +37,6 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     }
     
     @IBAction func nextButton(_ sender: Any) {
-        _ = engine.step()
+        _ = StandardEngine.engine.step()
     }
 }
