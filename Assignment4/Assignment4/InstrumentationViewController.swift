@@ -20,6 +20,10 @@ class InstrumentationViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let engine = StandardEngine.engine
+        gridSizeTextField.text = "\(engine.rows)"
+        gridSizeStepper.value = Double(engine.rows)
+        refreshRateSlider.value = Float(engine.refreshRate)
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,7 +75,7 @@ class InstrumentationViewController: UIViewController, UITextFieldDelegate {
         _ = engine.step()
     }
     
-    func showErrorAlert(withMessage msg:String, action: (() -> Void)? ) {
+    func showErrorAlert(withMessage msg: String, action: (() -> Void)? ) {
         let alert = UIAlertController(title: "Alert", message: msg, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) {
             _ in alert.dismiss(animated: true) {
