@@ -10,69 +10,88 @@ import UIKit
 
 class InstrumentationViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var gridSizeTextField: UITextField!
+    @IBOutlet weak var rowsTextField: UITextField!
     
-    @IBOutlet weak var gridSizeStepper: UIStepper!
+    @IBOutlet weak var rowsStepper: UIStepper!
+    
+    @IBOutlet weak var colsTextField: UITextField!
+    
+    @IBOutlet weak var colsStepper: UIStepper!
     
     @IBOutlet weak var refreshRateSlider: UISlider!
-    
+
     @IBOutlet weak var refreshTimerSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let engine = StandardEngine.engine
-        gridSizeTextField.text = "\(engine.rows)"
-        gridSizeStepper.value = Double(engine.rows)
-        refreshRateSlider.value = Float(engine.refreshRate)
+        rowsTextField.text = "\(StandardEngine.engine.rows)"
+        rowsStepper.value = Double(StandardEngine.engine.rows)
+        colsTextField.text = "\(StandardEngine.engine.cols)"
+        colsStepper.value = Double(StandardEngine.engine.cols)
+        refreshRateSlider.value = Float(StandardEngine.engine.refreshRate)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func gridSizeTextFieldUpdate(_ sender: UITextField) {
-        let engine = StandardEngine.engine
+    @IBAction func rowsTextFieldUpdate(_ sender: UITextField) {
         guard let text = sender.text else { return }
         guard let val = Int(text) else {
             showErrorAlert(withMessage: "Invalid value: \(text), please try again.") {
-                sender.text = "\(engine.rows)"
+                sender.text = "\(StandardEngine.engine.rows)"
             }
             return
         }
-        engine.rows = val
-        engine.cols = val
-        _ = engine.step()
-        gridSizeStepper.value = Double(engine.rows)
+        StandardEngine.engine.rows = val
+        _ = StandardEngine.engine.step()
+        rowsStepper.value = Double(StandardEngine.engine.rows)
     }
     
-    @IBAction func gridSizeStepperUpdate(_ sender: UIStepper) {
-        let engine = StandardEngine.engine
-        engine.rows = Int(sender.value)
-        engine.cols = Int(sender.value)
-        _ = engine.step()
-        gridSizeTextField.text = "\(engine.rows)"
+    @IBAction func rowsStepperUpdate(_ sender: UIStepper) {
+        StandardEngine.engine.rows = Int(sender.value)
+        _ = StandardEngine.engine.step()
+        rowsTextField.text = "\(StandardEngine.engine.rows)"
+    }
+    
+    @IBAction func colsTextFieldUpdate(_ sender: UITextField) {
+        guard let text = sender.text else { return }
+        guard let val = Int(text) else {
+            showErrorAlert(withMessage: "Invalid value: \(text), please try again.") {
+                sender.text = "\(StandardEngine.engine.cols)"
+            }
+            return
+        }
+        StandardEngine.engine.cols = val
+        _ = StandardEngine.engine.step()
+        colsStepper.value = Double(StandardEngine.engine.cols)
+    }
+    
+    @IBAction func colsStepperUpdate(_ sender: UIStepper) {
+        StandardEngine.engine.cols = Int(sender.value)
+        _ = StandardEngine.engine.step()
+        colsTextField.text = "\(StandardEngine.engine.cols)"
+
     }
     
     @IBAction func refreshRateSliderUpdate(_ sender: UISlider) {
-        let engine = StandardEngine.engine
         if refreshTimerSwitch.isOn && (TimeInterval(sender.value) > 0.0 ){
-            engine.refreshRate = TimeInterval(1 / sender.value)
+            StandardEngine.engine.refreshRate = TimeInterval(1 / sender.value)
         }
         else {
-            engine.refreshRate = 0.0
+            StandardEngine.engine.refreshRate = 0.0
         }
-        _ = engine.step()
+        _ = StandardEngine.engine.step()
     }
     
     @IBAction func refreshTimerSwitchToggle(_ sender: UISwitch) {
-        let engine = StandardEngine.engine
         if refreshTimerSwitch.isOn && (TimeInterval(refreshRateSlider.value) > 0.0) {
-            engine.refreshRate = TimeInterval(refreshRateSlider.value)
+            StandardEngine.engine.refreshRate = TimeInterval(refreshRateSlider.value)
         }
         else {
-            engine.refreshRate = 0.0
+            StandardEngine.engine.refreshRate = 0.0
         }
-        _ = engine.step()
+        _ = StandardEngine.engine.step()
     }
     
     func showErrorAlert(withMessage msg: String, action: (() -> Void)? ) {
