@@ -1,8 +1,8 @@
 //
 //  GridView.swift
-//  Assignment4
+//  FinalProject
 //
-//  Created by Douglas Newman on 4/22/17.
+//  Created by Douglas Newman on 5/1/17.
 //  Copyright © 2017 Harvard Division of Continuing Education. All rights reserved.
 //
 
