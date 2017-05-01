@@ -125,9 +125,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Kyn-At-mCJ" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="5bT-Mz-4Qn"/>
-                            <constraint firstItem="Kyn-At-mCJ" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="A3g-zL-J91"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Kyn-At-mCJ" secondAttribute="bottom" id="W9L-xn-0MC"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Kyn-At-mCJ" secondAttribute="bottom" id="I4e-BW-JKJ"/>
                             <constraint firstAttribute="trailing" secondItem="Kyn-At-mCJ" secondAttribute="trailing" id="dl6-bq-QhF"/>
+                            <constraint firstItem="Kyn-At-mCJ" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="h9W-Lq-Elb"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Instrumentation" image="Instrumentation" selectedImage="Instrumentation" id="acW-dT-cKf"/>
@@ -191,9 +191,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="MS8-q4-Y5J" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="0wP-6A-B0q"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="MS8-q4-Y5J" secondAttribute="bottom" id="1LD-bs-fuL"/>
                             <constraint firstAttribute="trailing" secondItem="MS8-q4-Y5J" secondAttribute="trailing" id="Jkd-hK-2UQ"/>
-                            <constraint firstItem="MS8-q4-Y5J" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="KTu-KR-zFL"/>
-                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="MS8-q4-Y5J" secondAttribute="bottom" id="xfF-FC-ADA"/>
+                            <constraint firstItem="MS8-q4-Y5J" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="Y5V-sq-1iF"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Simulation" image="Simulation" selectedImage="Simulation" id="cPa-gy-q4n"/>
@@ -292,10 +292,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="PQB-Ez-hQt" firstAttribute="top" secondItem="VNk-cg-7yv" secondAttribute="bottom" id="IwL-mp-M27"/>
+                            <constraint firstItem="eVX-a4-P15" firstAttribute="top" secondItem="PQB-Ez-hQt" secondAttribute="bottom" id="EG9-c2-Djn"/>
+                            <constraint firstItem="PQB-Ez-hQt" firstAttribute="top" secondItem="VNk-cg-7yv" secondAttribute="bottom" id="UT4-md-SOL"/>
                             <constraint firstItem="PQB-Ez-hQt" firstAttribute="leading" secondItem="UKV-uV-mgq" secondAttribute="leading" id="X7N-cO-tIS"/>
                             <constraint firstAttribute="trailing" secondItem="PQB-Ez-hQt" secondAttribute="trailing" id="dNF-cG-eyK"/>
-                            <constraint firstItem="eVX-a4-P15" firstAttribute="top" secondItem="PQB-Ez-hQt" secondAttribute="bottom" id="prd-uc-Dle"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Statistics" image="Statistics" selectedImage="Statistics" id="Aks-PK-SZn"/>
