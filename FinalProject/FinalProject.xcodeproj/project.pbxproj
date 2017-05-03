@@ -13,6 +13,7 @@
 		91594C891EB7CCD3007F53EB /* SimulationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91594C841EB7CCD3007F53EB /* SimulationViewController.swift */; };
 		91594C8A1EB7CCD3007F53EB /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91594C851EB7CCD3007F53EB /* StatisticsViewController.swift */; };
 		9170694A1EB97C0F007821C0 /* GridEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917069491EB97C0F007821C0 /* GridEditorViewController.swift */; };
+		9170694C1EB98847007821C0 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9170694B1EB98847007821C0 /* Fetcher.swift */; };
 		FBAD2E271E2BE417008207C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAD2E261E2BE417008207C0 /* AppDelegate.swift */; };
 		FBAD2E2E1E2BE417008207C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBAD2E2C1E2BE417008207C0 /* Main.storyboard */; };
 		FBAD2E301E2BE417008207C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBAD2E2F1E2BE417008207C0 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		91594C841EB7CCD3007F53EB /* SimulationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulationViewController.swift; sourceTree = "<group>"; };
 		91594C851EB7CCD3007F53EB /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		917069491EB97C0F007821C0 /* GridEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridEditorViewController.swift; sourceTree = "<group>"; };
+		9170694B1EB98847007821C0 /* Fetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
 		FBAD2E231E2BE417008207C0 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAD2E261E2BE417008207C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBAD2E2D1E2BE417008207C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				FBAD2E261E2BE417008207C0 /* AppDelegate.swift */,
+				9170694B1EB98847007821C0 /* Fetcher.swift */,
 				91594C811EB7CCD3007F53EB /* Grid.swift */,
 				91594C821EB7CCD3007F53EB /* GridView.swift */,
 				917069491EB97C0F007821C0 /* GridEditorViewController.swift */,
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBAD2E271E2BE417008207C0 /* AppDelegate.swift in Sources */,
+				9170694C1EB98847007821C0 /* Fetcher.swift in Sources */,
 				91594C8A1EB7CCD3007F53EB /* StatisticsViewController.swift in Sources */,
 				91594C881EB7CCD3007F53EB /* InstrumentationViewController.swift in Sources */,
 				91594C891EB7CCD3007F53EB /* SimulationViewController.swift in Sources */,

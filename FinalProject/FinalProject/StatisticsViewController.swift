@@ -17,6 +17,8 @@ class StatisticsViewController: UIViewController {
     var emptyCells: Int = 0
     var diedCells: Int = 0
     
+    @IBOutlet weak var cyclesCount: UILabel!
+    
     @IBOutlet weak var aliveCount: UILabel!
     
     @IBOutlet weak var bornCount: UILabel!
@@ -30,16 +32,8 @@ class StatisticsViewController: UIViewController {
         let nc = NotificationCenter.default
         let name = Notification.Name(rawValue: "EngineUpdate")
         nc.addObserver(forName: name, object: nil, queue: nil) {
-            _ in self.resetCounts()
-            self.updateCounts()
+            _ in self.updateCounts()
         }
-    }
-    
-    func resetCounts () {
-        aliveCells = 0
-        bornCells = 0
-        emptyCells = 0
-        diedCells = 0
     }
     
     func updateCounts() {
