@@ -31,7 +31,7 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         get { return StandardEngine.engine.grid[row,col] }
         set { StandardEngine.engine.grid[row,col] = newValue }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

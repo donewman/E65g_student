@@ -8,7 +8,9 @@
 
 import UIKit
 
-class InstrumentationViewController: UIViewController, UITextFieldDelegate {
+class InstrumentationViewController: UIViewController, /* UITableViewDelegate, UITableViewDataSource, */ UITextFieldDelegate {
+    
+    @IBOutlet weak var configurationTableView: UITableView!
     
     @IBOutlet weak var rowsTextField: UITextField!
     

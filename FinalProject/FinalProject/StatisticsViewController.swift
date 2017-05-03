@@ -43,23 +43,7 @@ class StatisticsViewController: UIViewController {
     }
     
     func updateCounts() {
-        (0 ..< gridCols).forEach { i in
-            (0 ..< gridRows).forEach { j in
-                if gridDataSource?[(i,j)] == .alive {
-                    aliveCells += 1
-                    aliveCount.text = String(aliveCells)
-                } else if gridDataSource?[(i,j)] == .born {
-                    bornCells += 1
-                    bornCount.text = String(bornCells)
-                } else if gridDataSource?[(i,j)] == .empty {
-                    emptyCells += 1
-                    emptyCount.text = String(emptyCells)
-                } else if gridDataSource?[(i,j)] == .died {
-                    diedCells += 1
-                    diedCount.text = String(diedCells)
-                }
-            }
-        }
+        
     }
     
     override func didReceiveMemoryWarning() {
