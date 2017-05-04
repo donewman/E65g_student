@@ -15,8 +15,7 @@ public protocol GridViewDataSource {
 @IBDesignable class GridView: UIView {
     var gridDataSource: GridViewDataSource?
     
-    @IBInspectable var gridCols: Int = StandardEngine.engine.cols
-    @IBInspectable var gridRows: Int = StandardEngine.engine.rows
+    @IBInspectable var gridSize: Int = StandardEngine.engine.rows
     @IBInspectable var aliveColor = UIColor.init(red: 0.2, green: 0.8, blue: 0.2, alpha: 0.5)
     @IBInspectable var bornColor =  UIColor.init(red: 0.2, green: 0.8, blue: 0.2, alpha: 1.0)
     @IBInspectable var emptyColor = UIColor.clear
@@ -31,12 +30,12 @@ public protocol GridViewDataSource {
     
     func drawOvals(_ rect: CGRect) {
         let size = CGSize(
-            width: rect.size.width / CGFloat(gridCols),
-            height: rect.size.height / CGFloat(gridRows)
+            width: rect.size.width / CGFloat(gridSize),
+            height: rect.size.height / CGFloat(gridSize)
         )
         let base = rect.origin
-        (0 ..< gridCols).forEach { i in
-            (0 ..< gridRows).forEach { j in
+        (0 ..< gridSize).forEach { i in
+            (0 ..< gridSize).forEach { j in
                 let ovalOrigin = CGPoint(
                     x: base.x + (CGFloat(j) * size.width) + 2.0,
                     y: base.y + (CGFloat(i) * size.height + 2.0)
@@ -67,16 +66,16 @@ public protocol GridViewDataSource {
 
 
     func drawLines(_ rect: CGRect) {
-        (0 ..< (gridCols + 1)).forEach {
+        (0 ..< (gridSize + 1)).forEach {
             drawLine(
-                start: CGPoint(x: CGFloat($0)/CGFloat(gridCols) * rect.size.width, y: 0.0),
-                end:   CGPoint(x: CGFloat($0)/CGFloat(gridCols) * rect.size.width, y: rect.size.height)
+                start: CGPoint(x: CGFloat($0)/CGFloat(gridSize) * rect.size.width, y: 0.0),
+                end:   CGPoint(x: CGFloat($0)/CGFloat(gridSize) * rect.size.width, y: rect.size.height)
             )
         }
-        (0 ..< (gridRows + 1)).forEach {
+        (0 ..< (gridSize + 1)).forEach {
             drawLine(
-                start: CGPoint(x: 0.0, y: CGFloat($0)/CGFloat(gridRows) * rect.size.height ),
-                end: CGPoint(x: rect.size.width, y: CGFloat($0)/CGFloat(gridRows) * rect.size.height)
+                start: CGPoint(x: 0.0, y: CGFloat($0)/CGFloat(gridSize) * rect.size.height ),
+                end: CGPoint(x: rect.size.width, y: CGFloat($0)/CGFloat(gridSize) * rect.size.height)
             )
         }
     }
@@ -127,11 +126,11 @@ public protocol GridViewDataSource {
     func convert(touch: UITouch) -> GridPosition {
         let touchY = touch.location(in: self).y
         let gridHeight = frame.size.height
-        let row = touchY / gridHeight * CGFloat(gridRows)
+        let row = touchY / gridHeight * CGFloat(gridSize)
         
         let touchX = touch.location(in: self).x
         let gridWidth = frame.size.width
-        let col = touchX / gridWidth * CGFloat(gridCols)
+        let col = touchX / gridWidth * CGFloat(gridSize)
         
         return GridPosition(row: Int(row), col: Int(col))
     }

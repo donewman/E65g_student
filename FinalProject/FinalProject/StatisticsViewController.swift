@@ -15,8 +15,6 @@ class StatisticsViewController: UIViewController {
     var emptyCells: Int = 0
     var diedCells: Int = 0
     
-    @IBOutlet weak var cyclesCount: UILabel!
-    
     @IBOutlet weak var aliveCount: UILabel!
     
     @IBOutlet weak var bornCount: UILabel!
@@ -35,8 +33,7 @@ class StatisticsViewController: UIViewController {
     }
     
     func updateCounts() {
-        cycles += 1
-        cyclesCount.text = String(cycles)
+
     }
     
     override func didReceiveMemoryWarning() {

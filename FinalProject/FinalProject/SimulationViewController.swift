@@ -19,7 +19,8 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         let nc = NotificationCenter.default
         let name = Notification.Name(rawValue: "EngineUpdate")
         nc.addObserver(forName: name, object: nil, queue: nil) {
-            (n) in self.gridView.setNeedsDisplay()
+            (n) in self.gridView.gridSize = StandardEngine.engine.rows
+            self.gridView.setNeedsDisplay()
         }
     }
     
@@ -39,4 +40,10 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     @IBAction func nextButton(_ sender: Any) {
         _ = StandardEngine.engine.step()
     }
+    
+    @IBAction func resetButton(_ sender: Any) {
+        StandardEngine.engine.grid = Grid(StandardEngine.engine.rows, StandardEngine.engine.cols)
+        _ = StandardEngine.engine.step()
+    }
+    
 }
