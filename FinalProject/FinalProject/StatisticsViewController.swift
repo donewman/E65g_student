@@ -9,9 +9,6 @@
 import UIKit
 
 class StatisticsViewController: UIViewController {
-    var gridDataSource: GridViewDataSource?
-    var gridCols: Int = StandardEngine.engine.cols
-    var gridRows: Int = StandardEngine.engine.rows
     var cycles: Int = 0
     var aliveCells: Int = 0
     var bornCells: Int = 0
