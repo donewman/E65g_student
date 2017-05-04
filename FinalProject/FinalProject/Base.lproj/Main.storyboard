@@ -179,7 +179,7 @@
             </objects>
             <point key="canvasLocation" x="1550.625" y="-320.07042253521126"/>
         </scene>
-        <!--Grid Editor View Controller-->
+        <!--Grid Editor-->
         <scene sceneID="tzl-oM-fbg">
             <objects>
                 <viewController id="8Oe-gz-1UA" customClass="GridEditorViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -213,21 +213,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPX-Se-5hk">
-                                        <rect key="frame" x="140" y="350" width="40" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="Save"/>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="AGV-cb-nik" firstAttribute="height" relation="lessThanOrEqual" secondItem="5Qa-T1-D3w" secondAttribute="height" multiplier="0.7" id="1GE-8F-abW"/>
-                                    <constraint firstItem="kPX-Se-5hk" firstAttribute="top" secondItem="AGV-cb-nik" secondAttribute="bottom" constant="8" id="BOd-mk-HQh"/>
                                     <constraint firstItem="AGV-cb-nik" firstAttribute="leading" secondItem="c5D-Y3-I0m" secondAttribute="leading" id="CMv-dh-uqN"/>
                                     <constraint firstItem="AGV-cb-nik" firstAttribute="width" relation="lessThanOrEqual" secondItem="5Qa-T1-D3w" secondAttribute="width" multiplier="0.7" id="DrA-ff-hS0"/>
                                     <constraint firstItem="c1F-uS-GlQ" firstAttribute="width" secondItem="AGV-cb-nik" secondAttribute="width" multiplier="0.5" id="GNK-Uw-V1J"/>
                                     <constraint firstItem="AGV-cb-nik" firstAttribute="top" secondItem="c5D-Y3-I0m" secondAttribute="bottom" constant="16" id="ROd-CN-VKM"/>
-                                    <constraint firstItem="kPX-Se-5hk" firstAttribute="centerX" secondItem="5Qa-T1-D3w" secondAttribute="centerX" id="e5D-2J-FQP"/>
                                     <constraint firstItem="AGV-cb-nik" firstAttribute="centerY" secondItem="5Qa-T1-D3w" secondAttribute="centerY" id="g5Q-JM-GOE"/>
                                     <constraint firstItem="AGV-cb-nik" firstAttribute="centerX" secondItem="5Qa-T1-D3w" secondAttribute="centerX" id="lOr-rt-BnC"/>
                                     <constraint firstItem="AGV-cb-nik" firstAttribute="height" secondItem="5Qa-T1-D3w" secondAttribute="height" multiplier="0.7" priority="750" id="nEv-Xb-CDa"/>
@@ -246,6 +239,10 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Grid Editor" id="vH5-EL-QKM">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="HcT-uJ-Nof"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="TnZ-J4-clc"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7QH-qK-JZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
