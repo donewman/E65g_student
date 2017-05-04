@@ -10,32 +10,26 @@ import UIKit
 
 class InstrumentationViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var rowsTextField: UITextField!
+    @IBOutlet weak var sizeTextField: UITextField!
     
-    @IBOutlet weak var rowsStepper: UIStepper!
-    
-    @IBOutlet weak var colsTextField: UITextField!
-    
-    @IBOutlet weak var colsStepper: UIStepper!
+    @IBOutlet weak var sizeStepper: UIStepper!
     
     @IBOutlet weak var refreshRateSlider: UISlider!
-
+    
     @IBOutlet weak var refreshTimerSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        rowsTextField.text = "\(StandardEngine.engine.rows)"
-        rowsStepper.value = Double(StandardEngine.engine.rows)
-        colsTextField.text = "\(StandardEngine.engine.cols)"
-        colsStepper.value = Double(StandardEngine.engine.cols)
+        sizeTextField.text = "\(StandardEngine.engine.rows)"
+        sizeStepper.value = Double(StandardEngine.engine.rows)
         refreshRateSlider.value = Float(StandardEngine.engine.refreshRate)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func rowsTextFieldUpdate(_ sender: UITextField) {
+    @IBAction func sizeTextFieldUpdate(_ sender: UITextField) {
         guard let text = sender.text else { return }
         guard let val = Int(text) else {
             showErrorAlert(withMessage: "Invalid value: \(text), please try again.") {
@@ -43,35 +37,20 @@ class InstrumentationViewController: UIViewController, UITextFieldDelegate {
             }
             return
         }
+        StandardEngine.engine.grid = Grid(val, val)
         StandardEngine.engine.rows = val
-        _ = StandardEngine.engine.step()
-        rowsStepper.value = Double(StandardEngine.engine.rows)
-    }
-    
-    @IBAction func rowsStepperUpdate(_ sender: UIStepper) {
-        StandardEngine.engine.rows = Int(sender.value)
-        _ = StandardEngine.engine.step()
-        rowsTextField.text = "\(StandardEngine.engine.rows)"
-    }
-    
-    @IBAction func colsTextFieldUpdate(_ sender: UITextField) {
-        guard let text = sender.text else { return }
-        guard let val = Int(text) else {
-            showErrorAlert(withMessage: "Invalid value: \(text), please try again.") {
-                sender.text = "\(StandardEngine.engine.cols)"
-            }
-            return
-        }
         StandardEngine.engine.cols = val
         _ = StandardEngine.engine.step()
-        colsStepper.value = Double(StandardEngine.engine.cols)
+        sizeStepper.value = Double(StandardEngine.engine.rows)
     }
     
-    @IBAction func colsStepperUpdate(_ sender: UIStepper) {
-        StandardEngine.engine.cols = Int(sender.value)
+    @IBAction func sizeStepperUpdate(_ sender: UIStepper) {
+        let val = Int(sender.value)
+        StandardEngine.engine.grid = Grid(val, val)
+        StandardEngine.engine.rows = val
+        StandardEngine.engine.cols = val
         _ = StandardEngine.engine.step()
-        colsTextField.text = "\(StandardEngine.engine.cols)"
-
+        sizeTextField.text = "\(StandardEngine.engine.rows)"
     }
     
     @IBAction func refreshRateSliderUpdate(_ sender: UISlider) {
