@@ -64,7 +64,6 @@ public protocol GridViewDataSource {
         path.fill()
     }
 
-
     func drawLines(_ rect: CGRect) {
         (0 ..< (gridSize + 1)).forEach {
             drawLine(

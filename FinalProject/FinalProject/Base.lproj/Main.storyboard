@@ -76,14 +76,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="182"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="configurationTableViewCell" textLabel="yTL-J9-oOO" style="IBUITableViewCellStyleDefault" id="hvu-AU-bb5">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="configurationTableViewCell" textLabel="EU1-Tn-e6C" style="IBUITableViewCellStyleDefault" id="hvu-AU-bb5">
                                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hvu-AU-bb5" id="3Am-uV-Zxd">
                                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yTL-J9-oOO">
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EU1-Tn-e6C">
                                                             <rect key="frame" x="15" y="0.0" width="270" height="43.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -97,6 +97,10 @@
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="9pv-A4-QxB" id="PBV-1U-exu"/>
+                                            <outlet property="delegate" destination="9pv-A4-QxB" id="bPu-YE-5wa"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="0.050000000000000003" colorSpace="calibratedRGB"/>
@@ -211,9 +215,16 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Grid Editor" id="vH5-EL-QKM">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="HcT-uJ-Nof"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="TnZ-J4-clc"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="TnZ-J4-clc">
+                            <connections>
+                                <action selector="saveButton:" destination="8Oe-gz-1UA" id="73Z-I9-d9C"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="gridName" destination="c1F-uS-GlQ" id="IHB-0R-Jjv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7QH-qK-JZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

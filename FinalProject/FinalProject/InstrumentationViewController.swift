@@ -8,7 +8,10 @@
 
 import UIKit
 
-class InstrumentationViewController: UIViewController, /* UITableViewDelegate, UITableViewDataSource, */ UITextFieldDelegate {
+class InstrumentationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+    var data: Array<Dictionary<String, Any>> = []
+    
+    let finalProjectURL = "https://dl.dropboxusercontent.com/u/7544475/S65g.json"
     
     @IBOutlet weak var configurationTableView: UITableView!
     
@@ -17,11 +20,12 @@ class InstrumentationViewController: UIViewController, /* UITableViewDelegate, U
     @IBOutlet weak var sizeStepper: UIStepper!
     
     @IBOutlet weak var refreshRateSlider: UISlider!
-
+    
     @IBOutlet weak var refreshTimerSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetch()
         sizeTextField.text = "\(StandardEngine.engine.rows)"
         sizeStepper.value = Double(StandardEngine.engine.rows)
         refreshRateSlider.value = Float(StandardEngine.engine.refreshRate)
@@ -29,6 +33,38 @@ class InstrumentationViewController: UIViewController, /* UITableViewDelegate, U
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func fetch() {
+        let fetcher = Fetcher()
+        fetcher.fetchJSON(url: URL(string:finalProjectURL)!) { (json: Any?, message: String?) in
+            guard message == nil else {
+                print(message ?? "nil")
+                return
+            }
+            guard let json = json else {
+                print("no json")
+                return
+            }
+            self.data = json as! Array
+            OperationQueue.main.addOperation {
+                self.configurationTableView.reloadData()
+            }
+        }
+    }
+    
+    func numberOfSections(in configurationTableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ configurationTableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    func tableView(_ configurationTableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = configurationTableView.dequeueReusableCell(withIdentifier: "configurationTableViewCell", for: indexPath)
+        cell.textLabel!.text = data[indexPath.item]["title"] as? String
+        return cell
     }
     
     @IBAction func sizeTextFieldUpdate(_ sender: UITextField) {

@@ -9,6 +9,7 @@
 import UIKit
 
 class GridEditorViewController: UIViewController {
+    @IBOutlet weak var gridName: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +17,10 @@ class GridEditorViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        
     }
     
 }
