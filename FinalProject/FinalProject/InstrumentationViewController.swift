@@ -81,7 +81,9 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     @IBAction func addRow(_ sender: Any) {
-        
+        let newRowDictionary: [String: Any] = ["title": "New Grid", "contents": [[0]]]
+        data.append(newRowDictionary)
+        self.configurationTableView.reloadData()
     }
     
     @IBAction func sizeTextFieldUpdate(_ sender: UITextField) {

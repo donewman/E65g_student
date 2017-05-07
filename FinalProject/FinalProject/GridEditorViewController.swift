@@ -20,7 +20,13 @@ class GridEditorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.editorGridView.gridSize = (Array(gridArray.joined()).max()! * 2)
+        let gridArrayMax = (Array(gridArray.joined()).max()! * 2)
+        if (gridArrayMax >= 10) {
+            self.editorGridView.gridSize = gridArrayMax
+        }
+        else {
+            self.editorGridView.gridSize = 10
+        }
     }
     
     override func didReceiveMemoryWarning() {
