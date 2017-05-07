@@ -9,9 +9,6 @@
 import UIKit
 
 class InstrumentationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
-    var data: Array<Dictionary<String, Any>> = []
-    
-    let finalProjectURL = "https://dl.dropboxusercontent.com/u/7544475/S65g.json"
     
     @IBOutlet weak var configurationTableView: UITableView!
     
@@ -22,6 +19,10 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var refreshRateSlider: UISlider!
     
     @IBOutlet weak var refreshTimerSwitch: UISwitch!
+    
+    var data: Array<Dictionary<String, Any>> = []
+    
+    let finalProjectURL = "https://dl.dropboxusercontent.com/u/7544475/S65g.json"
     
     override func viewDidLoad() {
         super.viewDidLoad()

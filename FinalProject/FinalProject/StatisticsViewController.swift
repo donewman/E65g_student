@@ -9,6 +9,15 @@
 import UIKit
 
 class StatisticsViewController: UIViewController {
+    
+    @IBOutlet weak var aliveCount: UILabel!
+    
+    @IBOutlet weak var bornCount: UILabel!
+    
+    @IBOutlet weak var diedCount: UILabel!
+    
+    @IBOutlet weak var emptyCount: UILabel!
+    
     var alive: [GridPosition] {
         return lazyPositions(StandardEngine.engine.grid.size).filter { return  StandardEngine.engine.grid[$0.row, $0.col] == .alive }
     }
@@ -24,14 +33,6 @@ class StatisticsViewController: UIViewController {
     var empty: [GridPosition] {
         return lazyPositions(StandardEngine.engine.grid.size).filter { return  StandardEngine.engine.grid[$0.row, $0.col] == .empty }
     }
-    
-    @IBOutlet weak var aliveCount: UILabel!
-    
-    @IBOutlet weak var bornCount: UILabel!
-    
-    @IBOutlet weak var diedCount: UILabel!
-    
-    @IBOutlet weak var emptyCount: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

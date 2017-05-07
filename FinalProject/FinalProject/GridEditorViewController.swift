@@ -10,15 +10,17 @@ import UIKit
 
 class GridEditorViewController: UIViewController {
     
+    @IBOutlet weak var editorGridView: GridView!
+    
+    @IBOutlet weak var gridNameTextField: UITextField!
+    
     var gridName: String = ""
     var gridArray: [[Int]] = []
     var saveClosure: ((String) -> Void)?
     
-    @IBOutlet weak var gridNameTextField: UITextField!
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        gridNameTextField.text = gridName
+        self.editorGridView.gridSize = (Array(gridArray.joined()).max()! * 2)
     }
     
     override func didReceiveMemoryWarning() {

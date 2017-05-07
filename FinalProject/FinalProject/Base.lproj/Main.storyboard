@@ -226,6 +226,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="editorGridView" destination="AGV-cb-nik" id="EKd-Un-a3I"/>
                         <outlet property="gridNameTextField" destination="c1F-uS-GlQ" id="0zm-sF-y6M"/>
                     </connections>
                 </viewController>
