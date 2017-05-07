@@ -9,12 +9,18 @@
 import UIKit
 
 class GridEditorViewController: UIViewController {
-    @IBOutlet weak var gridName: UITextField!
+    
+    var gridName: String = ""
+    var gridArray: [[Int]] = []
+    var saveClosure: ((String) -> Void)?
+    
+    @IBOutlet weak var gridNameTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        gridNameTextField.text = gridName
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

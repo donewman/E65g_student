@@ -67,6 +67,22 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexPath = configurationTableView.indexPathForSelectedRow
+        if let indexPath = indexPath {
+            let gridName = data[indexPath.row]["title"] as! String
+            let gridArray = data[indexPath.row]["contents"] as! [[Int]]
+            if let vc = segue.destination as? GridEditorViewController {
+                vc.gridName = gridName
+                vc.gridArray = gridArray
+            }
+        }
+    }
+    
+    @IBAction func addRow(_ sender: Any) {
+        
+    }
+    
     @IBAction func sizeTextFieldUpdate(_ sender: UITextField) {
         guard let text = sender.text else { return }
         guard let val = Int(text) else {

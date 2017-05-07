@@ -93,7 +93,7 @@
                                                     </subviews>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <segue destination="8Oe-gz-1UA" kind="show" trigger="accessoryAction" id="gEZ-dh-j0I"/>
+                                                    <segue destination="8Oe-gz-1UA" kind="show" id="RDL-9U-4T4"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -139,7 +139,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BXm-6X-ZiH">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mBf-Sb-et6"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mBf-Sb-et6">
+                            <connections>
+                                <action selector="addRow:" destination="9pv-A4-QxB" id="t3g-Ij-IAN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="configurationTableView" destination="bwo-C1-oC0" id="ZTp-sc-3mv"/>
@@ -214,7 +218,6 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Grid Editor" id="vH5-EL-QKM">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="HcT-uJ-Nof"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="TnZ-J4-clc">
                             <connections>
                                 <action selector="saveButton:" destination="8Oe-gz-1UA" id="73Z-I9-d9C"/>
@@ -223,7 +226,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="gridName" destination="c1F-uS-GlQ" id="IHB-0R-Jjv"/>
+                        <outlet property="gridNameTextField" destination="c1F-uS-GlQ" id="0zm-sF-y6M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7QH-qK-JZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
