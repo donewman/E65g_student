@@ -17,7 +17,9 @@ class GridEditorViewController: UIViewController, GridViewDataSource {
     var gridName: String = ""
     var gridArray: [[Int]] = []
     var engine = StandardEngine(rows: 10, cols: 10)
-    var saveClosure: ((String) -> Void)?
+    var newGridArray: [[Int]]?
+    var saveName: ((String) -> Void)?
+    var saveGrid: (([[Int]]) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,7 @@ class GridEditorViewController: UIViewController, GridViewDataSource {
             self.editorGridView.gridSize = 10
             engine.grid = Grid(10, 10)
         }
+        print(gridName, gridArray)
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,15 +46,33 @@ class GridEditorViewController: UIViewController, GridViewDataSource {
         set { engine.grid[row,col] = newValue }
     }
     
+    func getNewGridArray() {
+        newGridArray = []
+        lazyPositions(engine.grid.size).forEach {
+            switch self[$0.row, $0.col] {
+            case .alive:
+                newGridArray! += [[$0.row, $0.col]]
+            default:
+                ()
+            }
+        }
+    }
+    
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         StandardEngine.engine.grid = engine.grid
         let nc = NotificationCenter.default
         let update = Notification.Name(rawValue: "EngineUpdate")
         let n = Notification(name: update, object: nil, userInfo: ["engine" : StandardEngine.engine])
         nc.post(n)
-        if let newValue = gridNameTextField.text,
-            let saveClosure = saveClosure {
-            saveClosure(newValue)
+        if let newName = gridNameTextField.text,
+            let saveName = saveName {
+            saveName(newName)
+            self.navigationController?.popViewController(animated: true)
+        }
+        getNewGridArray()
+        if let newArray = newGridArray,
+            let saveGrid = saveGrid {
+            saveGrid(newArray)
             self.navigationController?.popViewController(animated: true)
         }
     }

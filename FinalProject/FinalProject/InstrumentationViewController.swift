@@ -76,8 +76,12 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
             if let vc = segue.destination as? GridEditorViewController {
                 vc.gridName = gridName
                 vc.gridArray = gridArray
-                vc.saveClosure = { newValue in
-                    self.data[indexPath.row]["title"] = newValue
+                vc.saveName = { newName in
+                    self.data[indexPath.row]["title"] = newName
+                    self.configurationTableView.reloadData()
+                }
+                vc.saveGrid = { newArray in
+                    self.data[indexPath.row]["contents"] = newArray
                     self.configurationTableView.reloadData()
                 }
             }
