@@ -16,6 +16,24 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         super.viewDidLoad()
         StandardEngine.engine.delegate = self
         gridView.gridDataSource = self
+        if(configuration["born"]?.isEmpty == false) {
+            let bornCells: [[Int]] = configuration["born"]!
+            (0 ..< bornCells.count).forEach { n in
+                StandardEngine.engine.grid[(bornCells[n][0]),(bornCells[n][1])] = .born
+            }
+        }
+        if(configuration["alive"]?.isEmpty == false) {
+            let aliveCells: [[Int]] = configuration["alive"]!
+            (0 ..< aliveCells.count).forEach { n in
+                StandardEngine.engine.grid[(aliveCells[n][0]),(aliveCells[n][1])] = .alive
+            }
+        }
+        if(configuration["died"]?.isEmpty == false) {
+            let diedCells: [[Int]] = configuration["died"]!
+            (0 ..< diedCells.count).forEach { n in
+                StandardEngine.engine.grid[(diedCells[n][0]),(diedCells[n][1])] = .died
+            }
+        }
         let nc = NotificationCenter.default
         let update = Notification.Name(rawValue: "EngineUpdate")
         nc.addObserver(forName: update, object: nil, queue: nil) {
