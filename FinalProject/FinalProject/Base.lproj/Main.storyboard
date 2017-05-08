@@ -285,6 +285,9 @@
                                         <rect key="frame" x="232" y="370" width="40" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="CDR-Un-8xz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbc-TK-vg7">
                                         <rect key="frame" x="137" y="370" width="46" height="34"/>

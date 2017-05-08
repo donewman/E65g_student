@@ -144,6 +144,8 @@ public extension Grid {
     }
 }
 
+var configuration: [String: [[Int]]] = [:]
+
 protocol EngineDelegate {
     func engineDidUpdate(withGrid: GridProtocol)
 }
@@ -198,8 +200,8 @@ class StandardEngine: EngineProtocol {
         grid = newGrid
         delegate?.engineDidUpdate(withGrid: grid)
         let nc = NotificationCenter.default
-        let name = Notification.Name(rawValue: "EngineUpdate")
-        let n = Notification(name: name, object: nil, userInfo: ["engine" : self])
+        let update = Notification.Name(rawValue: "EngineUpdate")
+        let n = Notification(name: update, object: nil, userInfo: ["engine" : self])
         nc.post(n)
         return grid
     }

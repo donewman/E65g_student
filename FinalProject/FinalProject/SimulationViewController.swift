@@ -17,8 +17,8 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         StandardEngine.engine.delegate = self
         gridView.gridDataSource = self
         let nc = NotificationCenter.default
-        let name = Notification.Name(rawValue: "EngineUpdate")
-        nc.addObserver(forName: name, object: nil, queue: nil) {
+        let update = Notification.Name(rawValue: "EngineUpdate")
+        nc.addObserver(forName: update, object: nil, queue: nil) {
             (n) in self.gridView.gridSize = StandardEngine.engine.rows
             self.gridView.setNeedsDisplay()
         }
@@ -43,7 +43,26 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     
     @IBAction func resetButton(_ sender: Any) {
         StandardEngine.engine.grid = Grid(StandardEngine.engine.rows, StandardEngine.engine.cols)
-        _ = StandardEngine.engine.step()
+        self.gridView.gridSize = StandardEngine.engine.rows
+        self.gridView.setNeedsDisplay()
+        let nc = NotificationCenter.default
+        let reset = Notification.Name(rawValue: "EngineReset")
+        let n = Notification(name: reset, object: nil, userInfo: ["engine" : StandardEngine.engine])
+        nc.post(n)
     }
     
+    @IBAction func saveButton(_ sender: Any) {
+        lazyPositions(StandardEngine.engine.grid.size).forEach {
+            switch self[$0.row, $0.col] {
+            case .born:
+                configuration["born"] = (configuration["born"] ?? []) + [[$0.row, $0.col]]
+            case .alive:
+                configuration["alive"] = (configuration["alive"] ?? []) + [[$0.row, $0.col]]
+            case .died:
+                configuration["died"] = (configuration["died"] ?? []) + [[$0.row, $0.col]]
+            case .empty:
+                ()
+            }
+        }
+    }
 }
