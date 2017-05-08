@@ -14,6 +14,7 @@ class GridEditorViewController: UIViewController, GridViewDataSource {
     
     @IBOutlet weak var gridNameTextField: UITextField!
     
+    var gridDataSource: GridViewDataSource?
     var gridName: String = ""
     var gridArray: [[Int]] = []
     var engine = StandardEngine(rows: 10, cols: 10)
@@ -34,7 +35,9 @@ class GridEditorViewController: UIViewController, GridViewDataSource {
             self.editorGridView.gridSize = 10
             engine.grid = Grid(10, 10)
         }
-        print(gridName, gridArray)
+        if (gridArray.count > 0 && gridArray[0] != [0]) {
+            loadGrid()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,6 +47,12 @@ class GridEditorViewController: UIViewController, GridViewDataSource {
     public subscript (row: Int, col: Int) -> CellState {
         get { return engine.grid[row,col] }
         set { engine.grid[row,col] = newValue }
+    }
+    
+    func loadGrid() {
+        (0 ..< gridArray.count).forEach { n in
+            engine.grid[(gridArray[n][0]),(gridArray[n][1])] = .alive
+        }
     }
     
     func getNewGridArray() {
@@ -60,6 +69,8 @@ class GridEditorViewController: UIViewController, GridViewDataSource {
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         StandardEngine.engine.grid = engine.grid
+        StandardEngine.engine.rows = editorGridView.gridSize
+        StandardEngine.engine.cols = editorGridView.gridSize
         let nc = NotificationCenter.default
         let update = Notification.Name(rawValue: "EngineUpdate")
         let n = Notification(name: update, object: nil, userInfo: ["engine" : StandardEngine.engine])
