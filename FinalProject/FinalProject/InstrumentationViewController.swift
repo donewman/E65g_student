@@ -76,13 +76,17 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
             if let vc = segue.destination as? GridEditorViewController {
                 vc.gridName = gridName
                 vc.gridArray = gridArray
+                vc.saveClosure = { newValue in
+                    self.data[indexPath.row]["title"] = newValue
+                    self.configurationTableView.reloadData()
+                }
             }
         }
     }
     
     @IBAction func addRow(_ sender: Any) {
         let newRowDictionary: [String: Any] = ["title": "New Grid", "contents": [[0]]]
-        data.append(newRowDictionary)
+        data.insert(newRowDictionary, at: 0)
         self.configurationTableView.reloadData()
     }
     

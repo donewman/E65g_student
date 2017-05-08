@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let defaults = UserDefaults.standard
         defaults.set(configuration, forKey: "simulationConfiguration")
-        let recoveredConfiguration = defaults.object(forKey: "simulationConfiguration")
+        _ = defaults.object(forKey: "simulationConfiguration")
         return true
     }
 

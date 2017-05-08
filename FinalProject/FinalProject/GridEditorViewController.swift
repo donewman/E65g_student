@@ -49,6 +49,11 @@ class GridEditorViewController: UIViewController, GridViewDataSource {
         let update = Notification.Name(rawValue: "EngineUpdate")
         let n = Notification(name: update, object: nil, userInfo: ["engine" : StandardEngine.engine])
         nc.post(n)
+        if let newValue = gridNameTextField.text,
+            let saveClosure = saveClosure {
+            saveClosure(newValue)
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
 }
