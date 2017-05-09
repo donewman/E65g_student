@@ -130,7 +130,7 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     
     @IBAction func refreshTimerSwitchToggle(_ sender: UISwitch) {
         if refreshTimerSwitch.isOn && (TimeInterval(refreshRateSlider.value) > 0.0) {
-            StandardEngine.engine.refreshRate = TimeInterval(refreshRateSlider.value)
+            StandardEngine.engine.refreshRate = TimeInterval(1 / refreshRateSlider.value)
         }
         else {
             StandardEngine.engine.refreshRate = 0.0
